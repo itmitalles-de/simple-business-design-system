@@ -1,0 +1,50 @@
+{
+  "name": "@itmitalles-de/simple-business-design-system",
+  "version": "0.1.0",
+  "description": "Versioned Simple Business UI contract, tokens, semantic icons, linting and comparison showcase.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "bin",
+    "docs/design-system",
+    "src",
+    "LICENSES",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./tokens.css": "./src/tokens.css",
+    "./tokens.json": "./src/tokens.json",
+    "./icons": {
+      "types": "./src/icon-semantics.d.ts",
+      "default": "./src/icon-semantics.js"
+    },
+    "./icons.json": "./src/icon-semantics.json",
+    "./icons.svg": "./src/icons.svg",
+    "./rules.json": "./src/ui-contract.json"
+  },
+  "bin": {
+    "simple-business-lint": "./bin/simple-business-lint.mjs",
+    "simple-business-sync-nextcloud": "./bin/simple-business-sync-nextcloud.mjs"
+  },
+  "scripts": {
+    "lint": "node ./bin/simple-business-lint.mjs --self",
+    "test": "node --test test/*.test.mjs",
+    "validate": "npm run lint && npm test && npm pack --dry-run",
+    "showcase": "node ./scripts/serve-showcase.mjs"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itmitalles-de/simple-business-design-system.git"
+  }
+}

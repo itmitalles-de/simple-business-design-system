@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "0.1.0",
+  "library": {
+    "name": "Lucide",
+    "baselineVersion": "0.475.0",
+    "license": "ISC"
+  },
+  "icons": {
+    "settings.open": "Settings",
+    "content.edit": "Pencil",
+    "sidebar.state": "PanelLeft",
+    "sidebar.collapse": "PanelLeftClose",
+    "sidebar.expand": "PanelLeftOpen",
+    "navigation.open": "PanelLeftOpen",
+    "navigation.close": "PanelLeftClose",
+    "search": "Search",
+    "close": "X",
+    "select.expand": "ChevronDown",
+    "theme.system": "Monitor",
+    "theme.light": "Sun",
+    "theme.dark": "Moon"
+  },
+  "labels": {
+    "sidebar.collapse": {
+      "de": "Sidebar einklappen",
+      "en": "Collapse sidebar"
+    },
+    "sidebar.expand": {
+      "de": "Sidebar ausklappen",
+      "en": "Expand sidebar"
+    },
+    "navigation.open": {
+      "de": "Navigation öffnen",
+      "en": "Open navigation"
+    },
+    "navigation.close": {
+      "de": "Navigation schließen",
+      "en": "Close navigation"
+    },
+    "settings.open": {
+      "de": "Einstellungen",
+      "en": "Settings"
+    },
+    "theme.system": {
+      "de": "System",
+      "en": "System"
+    },
+    "theme.light": {
+      "de": "Hell",
+      "en": "Light"
+    },
+    "theme.dark": {
+      "de": "Dunkel",
+      "en": "Dark"
+    }
+  },
+  "forbidden": {
+    "navigationIcons": [
+      "Menu",
+      "Hamburger",
+      "Bars3",
+      "☰"
+    ],
+    "settingsIcons": [
+      "Pencil",
+      "Pen",
+      "PenLine",
+      "SquarePen",
+      "FilePen",
+      "Edit",
+      "Edit2",
+      "Edit3",
+      "Sliders",
+      "Wrench"
+    ],
+    "settingsLabels": [
+      "Einstellungen bearbeiten",
+      "Konfiguration editieren",
+      "Edit settings"
+    ]
+  }
+}

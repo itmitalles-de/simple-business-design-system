@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Vergleich der fünf kontrollierten Simple-Business-Designrichtungen"
+    />
+    <title>Simple Business · Designrichtungen</title>
+    <link rel="stylesheet" href="../src/tokens.css" />
+    <link rel="stylesheet" href="./showcase.css" />
+  </head>
+  <body class="sb-root showcase-page" data-sb-theme="light">
+    <header class="showcase-header">
+      <div>
+        <p class="sb-eyebrow">Simple Business · Auswahlbasis</p>
+        <h1>Fünf Richtungen, eine Produktfamilie</h1>
+        <p>
+          Identische Inhalte und Viewports machen Farbe, Typografie, aktive Navigation,
+          Produktidentität, Borderhierarchie und Dichte direkt vergleichbar.
+        </p>
+      </div>
+      <div class="showcase-theme" role="radiogroup" aria-label="Darstellung">
+        <button class="sb-segment-button" type="button" role="radio" aria-checked="true" data-theme="system">
+          <svg class="sb-icon" aria-hidden="true"><use href="../src/icons.svg#sb-icon-monitor"></use></svg>
+          System
+        </button>
+        <button class="sb-segment-button" type="button" role="radio" aria-checked="false" data-theme="light">
+          <svg class="sb-icon" aria-hidden="true"><use href="../src/icons.svg#sb-icon-sun"></use></svg>
+          Hell
+        </button>
+        <button class="sb-segment-button" type="button" role="radio" aria-checked="false" data-theme="dark">
+          <svg class="sb-icon" aria-hidden="true"><use href="../src/icons.svg#sb-icon-moon"></use></svg>
+          Dunkel
+        </button>
+      </div>
+    </header>
+
+    <aside class="showcase-note" aria-label="Verbindliche Gemeinsamkeiten">
+      <strong>Nicht Teil der Auswahl:</strong>
+      Sidebarposition, Panel-Logik, Icon-Semantik, Zahnrad für Einstellungen,
+      Flat Design, Radiusgrenze und Bedienfolge bleiben in allen Varianten gleich.
+    </aside>
+
+    <main id="concept-list" class="concept-list"></main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

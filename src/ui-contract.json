@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "0.1.0",
+  "authority": "binding",
+  "shellOrder": [
+    "brandRow",
+    "productSwitcher",
+    "primaryNavigation",
+    "contextSections",
+    "secondaryNavigation",
+    "accountArea"
+  ],
+  "mainOrder": [
+    "optionalContextBar",
+    "pageHeader",
+    "pageContent"
+  ],
+  "visual": {
+    "maximumRadiusPx": 6,
+    "maximumButtonRadiusPx": 4,
+    "shadows": false,
+    "gradients": false,
+    "glow": false,
+    "glass": false,
+    "pillButtons": false,
+    "corporateDefault": "RAL 5015",
+    "digitalAccentApproximation": "#2271B3"
+  },
+  "sidebar": {
+    "desktopDefaultVisible": true,
+    "desktopCollapsedMode": "icon-rail",
+    "persistentState": true,
+    "mobileMode": "left-drawer",
+    "preserveNavigationOrder": true,
+    "genericMenuIconAllowed": false,
+    "escapeCloses": true,
+    "focusTrapped": true,
+    "focusReturnsToTrigger": true
+  },
+  "settings": {
+    "icon": "Settings",
+    "labels": {
+      "de": "Einstellungen",
+      "en": "Settings"
+    },
+    "editIconAllowed": false,
+    "internalNavigation": true,
+    "search": true,
+    "rowSeparators": true,
+    "cardPerSetting": false,
+    "internalScroll": true
+  },
+  "themeControl": {
+    "kind": "segmented-radio",
+    "options": [
+      "system",
+      "light",
+      "dark"
+    ],
+    "binaryToggleAllowed": false
+  },
+  "concepts": {
+    "count": 5,
+    "sameContent": true,
+    "sameViewports": true,
+    "minimumDisplaySerifConcepts": 2,
+    "minimumMoreColorfulThanReference": 3
+  }
+}
