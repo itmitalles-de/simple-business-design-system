@@ -42,5 +42,6 @@ use an explicit, time-bounded migration exception in the consumer instead.
 - Package versions are exact and immutable.
 - Consumer updates happen by pull request and must pass the consumer's own CI.
 - Do not fetch an unpinned branch, CDN asset, or remote CSS at runtime.
-- The package is unlicensed/private until ownership and distribution terms are
-  explicitly resolved.
+- The source and release artifacts are public but unlicensed. Public
+  availability does not grant reuse rights until ownership and distribution
+  terms are explicitly resolved.

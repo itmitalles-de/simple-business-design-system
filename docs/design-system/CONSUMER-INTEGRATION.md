@@ -2,9 +2,10 @@
 
 ## Delivery model
 
-The canonical repository publishes immutable private releases of
-`@itmitalles-de/simple-business-design-system` to GitHub Packages. Consumers pin
-the exact version in both their package manifest and lockfile. Automated pull
+The canonical repository publishes the same npm package in two forms: an
+authenticated GitHub Packages version and a public tarball attached to every
+GitHub release. Public suite consumers pin the versioned release URL in their
+package manifest and its SHA-512 integrity in the lockfile. Version update pull
 requests may propose upgrades, but no consumer follows `main`, a floating tag,
 or a CDN URL.
 
@@ -12,11 +13,28 @@ Three React products consume package exports at build time. Office runs the
 package only in development/CI and checks generated CSS/SVG into each owned
 Nextcloud app. The production host remains Node-free.
 
-## One-time package access
+## Public suite consumption
 
-After the first release is published, an organization owner must open the
-package settings and add these repositories under **Manage Actions access**
-with read access:
+The public release artifact is the default for the public Simple Business
+suite. It requires no registry credential and therefore works identically in
+local development, GitHub Actions, and Docker builds:
+
+```json
+{
+  "dependencies": {
+    "@itmitalles-de/simple-business-design-system": "https://github.com/itmitalles-de/simple-business-design-system/releases/download/v0.1.1/itmitalles-de-simple-business-design-system-0.1.1.tgz"
+  }
+}
+```
+
+The dependency must remain exact. The committed lockfile must contain the same
+URL plus its integrity value. Runtime downloads remain prohibited; npm fetches
+the artifact only during the normal dependency installation step.
+
+## Optional authenticated registry consumption
+
+Consumers choosing GitHub Packages instead must have read access under the
+package's **Manage Actions access** settings:
 
 - `itmitalles-de/essentials-calls`
 - `itmitalles-de/essentials-freelancer`
@@ -27,7 +45,7 @@ Consumer workflows then use their scoped `GITHUB_TOKEN` with `contents: read`
 and `packages: read`. Do not create a shared long-lived package token when
 repository-scoped Actions access is available.
 
-## CI registry setup
+### CI registry setup
 
 Use `actions/setup-node` with the GitHub registry and scope. The generated
 runner-only npm configuration references `NODE_AUTH_TOKEN`; no credential is
@@ -48,7 +66,7 @@ permissions:
     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-If a Docker build installs the private package, pass the token as a BuildKit
+If a Docker build installs the registry package, pass the token as a BuildKit
 secret for the install step and remove the temporary npm configuration in the
 same layer. Never use an `ARG`, `ENV`, copied `.npmrc`, image label, or build log
 for credentials. Existing product images should not be changed until that
@@ -62,7 +80,7 @@ global style entry point:
 ```json
 {
   "dependencies": {
-    "@itmitalles-de/simple-business-design-system": "0.1.0"
+    "@itmitalles-de/simple-business-design-system": "https://github.com/itmitalles-de/simple-business-design-system/releases/download/v0.1.1/itmitalles-de-simple-business-design-system-0.1.1.tgz"
   }
 }
 ```
@@ -106,8 +124,8 @@ copy only app-local generated assets.
 ## Update sequence
 
 1. Change and validate this source repository.
-2. Publish an immutable SemVer release after review.
-3. Grant/retain consumer Actions read access.
+2. Publish an immutable SemVer release with its npm tarball after review.
+3. For registry consumers only, grant/retain Actions read access.
 4. Open exact-version update pull requests in all four products.
 5. Regenerate Office assets from the pinned version.
 6. Run each product's own lint, test, build, and platform checks.

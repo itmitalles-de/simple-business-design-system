@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { existsSync } from "node:fs";
+import { existsSync, realpathSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -117,7 +117,7 @@ async function main() {
   }
 }
 
-const invokedPath = process.argv[1] ? path.resolve(process.argv[1]) : "";
-if (invokedPath === fileURLToPath(import.meta.url)) {
+const invokedPath = process.argv[1] ? realpathSync(process.argv[1]) : "";
+if (invokedPath === realpathSync(fileURLToPath(import.meta.url))) {
   await main();
 }

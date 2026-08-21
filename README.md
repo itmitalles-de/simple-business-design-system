@@ -11,8 +11,8 @@ comparison. It is intentionally product-logic-free.
   departures.
 - `docs/design-system/UI-CONTRACT.md`: binding shell, settings, form,
   typography, navigation, color, responsive, and concept rules.
-- `docs/design-system/CONSUMER-INTEGRATION.md`: private package access,
-  exact-version consumption, and the Nextcloud generation path.
+- `docs/design-system/CONSUMER-INTEGRATION.md`: public release-artifact and
+  optional registry consumption plus the Nextcloud generation path.
 - `docs/design-system/ICON-SEMANTICS.md`: shared icon meanings and accessible
   labels.
 - `src/tokens.css` and `src/tokens.json`: framework-neutral tokens and five
@@ -27,16 +27,16 @@ comparison. It is intentionally product-logic-free.
 
 ## Consumer model
 
-Products install an exact package version. JavaScript products import the CSS,
-contract, and icon semantics at build time. Nextcloud products run the sync CLI
-in development/CI and commit the generated CSS/SVG files into their app assets.
-Automated dependency pull requests propose new versions; no product downloads
-design assets at runtime.
+Products install an exact versioned release artifact. JavaScript products import
+the CSS, contract, and icon semantics at build time. Nextcloud products run the
+sync CLI in development/CI and commit the generated CSS/SVG files into their app
+assets. Version update pull requests keep changes reviewable; no product
+downloads design assets at runtime.
 
 ```text
 simple-business-design-system release
               |
-              +-- exact npm version --> Calls / Freelancer / Merchant
+              +-- exact release artifact --> Calls / Freelancer / Merchant
               |
               +-- deterministic sync --> Office Nextcloud app assets
               |
