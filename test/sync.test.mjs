@@ -21,6 +21,6 @@ test("Nextcloud assets are deterministic and checkable", async (context) => {
   const manifest = JSON.parse(
     await readFile(path.join(target, "simple-business-manifest.json"), "utf8")
   );
-  assert.equal(manifest.version, "0.1.0");
+  assert.equal(manifest.version, "0.1.1");
   assert.equal(manifest.generated, true);
 });

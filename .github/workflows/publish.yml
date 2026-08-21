@@ -5,7 +5,7 @@ on:
     types: [published]
 
 permissions:
-  contents: read
+  contents: write
   packages: write
 
 jobs:
@@ -30,6 +30,17 @@ jobs:
         env:
           RELEASE_TAG: ${{ github.event.release.tag_name }}
         run: node -e "const p=require('./package.json'); if (process.env.RELEASE_TAG !== 'v'+p.version) throw new Error('Release tag and package version differ')"
+
+      - name: Pack public release artifact
+        run: |
+          mkdir -p release
+          npm pack --pack-destination release
+
+      - name: Upload public release artifact
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: gh release upload "$RELEASE_TAG" release/*.tgz --clobber
 
       - run: npm publish
         env:

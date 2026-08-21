@@ -1,6 +1,6 @@
 {
   "name": "@itmitalles-de/simple-business-design-system",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Versioned Simple Business UI contract, tokens, semantic icons, linting and comparison showcase.",
   "type": "module",
   "license": "UNLICENSED",

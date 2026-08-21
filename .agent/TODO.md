@@ -1,9 +1,8 @@
 # TODO
 
-- Restore GitHub Actions by resolving the organization billing or spending-limit
-  state and rerun central CI.
-- Publish the reviewed `0.1.0` package through the release workflow.
-- Grant Actions read access to all four product repositories under the package's
-  **Manage Actions access** settings.
-- Replace the local consumer pointers with exact package/lockfile integrations
-  and product-specific CI updates after package access is proven.
+- Commit, push, and publish the validated `0.1.1` CLI fix after explicit
+  authorization; confirm the release tarball works through installed npm bins.
+- Replace all four consumer pointers with exact `0.1.1` release-artifact and
+  lockfile integrations plus product-specific design lint checks.
+- Generate and commit Office assets from `0.1.1`; keep production Node-free.
+- Integrate Calls only without absorbing its extensive unrelated dirty worktree.
